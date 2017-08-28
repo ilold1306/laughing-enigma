@@ -1,0 +1,16 @@
+ru/ilold/managers/UsersEntitiesManager.class
+ru/ilold/UserEntities/User.class
+ru/ilold/managers/AuthentificateManager.class
+ru/ilold/UserEntities/CredentialsRole.class
+ru/ilold/UserEntities/Pravo.class
+ru/ilold/UserEntities/Role.class
+ru/ilold/managers/RolesManager.class
+ru/ilold/etc/StatusMessage.class
+ru/ilold/managers/OrderBinManager.class
+ru/ilold/UserEntities/OrderBin.class
+ru/ilold/ProductEntities/Category.class
+ru/ilold/UserEntities/Credentials.class
+ru/ilold/managers/ProductEntitiesManager.class
+ru/ilold/ProductEntities/ProductInOrderBin.class
+ru/ilold/UserEntities/Resource.class
+ru/ilold/ProductEntities/Product.class

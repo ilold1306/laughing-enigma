@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Main</title>
+</h:head>
+<h:body>
+    <f:facet name="last">
+        <h:outputStylesheet library="css" name="menu.css" />
+    </f:facet>
+    <p:layout fullPage="true" styleClass="ui-noborder">
+        <p:layoutUnit position="center" />
+        <p:layoutUnit position="north" size="100" resizable="false" styleClass="backgroundcolor" >
+            <h:panelGrid columns="2" style="width: 100%" columnClasses="basicStyle, rightStyle">
+                <h:column><p:graphicImage value="../resources/logos/small_logo.png" /></h:column>
+                <h:column>
+                    <h:form>
+                        <ui:include src="#{loginBean.logged}" />
+                    </h:form>
+                </h:column>
+            </h:panelGrid>
+        </p:layoutUnit>
+        <p:layoutUnit position="west" size="250" resizable="false" >
+            <p:megaMenu orientation="vertical" style="margin-top: 20px" >
+                <p:submenu label="Playstation" >
+                    <p:column>
+                        <p:submenu label="Playstation">
+                            <p:menuitem value="Playstation 4" url="" />
+                            <p:menuitem value="Playstation 3" url="" />
+                            <p:menuitem value="Playstation 2" url="" />
+                            <p:menuitem value="Accessories" url="" />
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+                <p:submenu label="XBox">
+                    <p:column>
+                        <p:submenu label="XBox" >
+                            <p:menuitem value="Xbox one" url="" />
+                            <p:menuitem value="XBox 360" url="" />
+                            <p:menuitem value="Accessories" url="" />
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+                <p:submenu label="Nintendo" >
+                    <p:column>
+                        <p:submenu label="Nintendo">
+                            <p:menuitem value="DS" url="" />
+                            <p:menuitem value="Vii" url="" />
+                        </p:submenu>
+                    </p:column>
+                </p:submenu>
+            </p:megaMenu>
+        </p:layoutUnit>
+    </p:layout>
+</h:body>
+</html>

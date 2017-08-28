@@ -1,0 +1,7 @@
+html, body {
+    background: #ffffff;
+}
+
+.ui-panelgrid > tr td, .ui-panelgrid > tr, .ui-panelgrid {
+    border-style: none !important;
+}

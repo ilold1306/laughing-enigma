@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Sign up</title>
+</h:head>
+<body>
+    <f:facet name="last">
+        <h:outputStylesheet library="css" name="styles.css" />
+    </f:facet>
+    <p:panelGrid columns="1">
+        <p:graphicImage value="../resources/logos/small_logo.png" />
+    </p:panelGrid>
+    <h:form>
+        <p:panelGrid columns="2" >
+            <p:column><h:outputText value="Email *"/> </p:column>
+            <p:column><p:inputText value="#{signupBean.credentials.email}" /> </p:column>
+            <p:column><h:outputText value="Password *" /></p:column>
+            <p:column><p:password id="fst" value="#{signupBean.password}"
+                                  feedback="true" inline="true"
+                                  match="scnd" label="Password 1" required="true"/></p:column>
+            <p:column><h:outputText value="Again *" /></p:column>
+            <p:column><p:password id="scnd" value="#{signupBean.password}"
+                                  label="Password 2" required="true" /></p:column>
+            <p:column><h:outputText value="Name *" /></p:column>
+            <p:column><p:inputText value="#{signupBean.user.name}" /> </p:column>
+            <p:column><h:outputText value="Last name *" /> </p:column>
+            <p:column><p:inputText value="#{signupBean.user.lastName}" /></p:column>
+            <p:column><h:outputText value="City" /> </p:column>
+            <p:column><p:inputText value="#{signupBean.user.city}" /> </p:column>
+            <p:column><h:outputText value="Adress" /> </p:column>
+            <p:column><p:inputText value="#{signupBean.user.adress}" /> </p:column>
+            <p:column><h:outputText value="Post index" /> </p:column>
+            <p:column><p:inputText value="#{signupBean.user.index}" /> </p:column>
+            <p:column><h:outputText value="Phone number" /> </p:column>
+            <p:column><p:inputText value="#{signupBean.user.phoneNumber}" /> </p:column>
+            <p:column><p:commandButton value="Sign up" action="#{signupBean.doSignUp}" update="message" /> </p:column>
+            <p:column><h:outputText id="message" value="#{signupBean.statusMessage.message}" /></p:column>
+        </p:panelGrid>
+    </h:form>
+
+</body>
+</html>
