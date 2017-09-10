@@ -1,5 +1,13 @@
-/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/authbeans/SignupBean.java
+/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/pagesbeans/ErrorPageBean.java
+/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/files/JackRepository.java
+/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/JackRepo.java
+/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/adminbeans/CategoryBean.java
 /home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/servlets/IsLoggedFilter.java
-/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/authbeans/LoginBean.java
+/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/profile/ProfileBean.java
+/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/adminbeans/ProductsBean.java
 /home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/servlets/AuthFilter.java
 /home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/pagesbeans/mainPageBean.java
+/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/adminbeans/RolesBean.java
+/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/files/FileUpload.java
+/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/authbeans/SignupBean.java
+/home/user/workspace/projects/tvshop/web/src/main/java/ru/ilold/authbeans/LoginBean.java

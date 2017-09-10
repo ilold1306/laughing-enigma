@@ -38,9 +38,8 @@
             <p:column><h:outputText value="Post index" /> </p:column>
             <p:column><p:inputText value="#{signupBean.user.index}" /> </p:column>
             <p:column><h:outputText value="Phone number" /> </p:column>
-            <p:column><p:inputText value="#{signupBean.user.phoneNumber}" /> </p:column>
-            <p:column><p:commandButton value="Sign up" action="#{signupBean.doSignUp}" update="message" /> </p:column>
-            <p:column><h:outputText id="message" value="#{signupBean.statusMessage.message}" /></p:column>
+            <p:column><p:inputText value="#{signupBean.user.phoneNumber}" /></p:column>
+            <p:column><h:form><p:commandButton value="Sign up" action="#{signupBean.doSignUp}"/></h:form></p:column>
         </p:panelGrid>
     </h:form>
 

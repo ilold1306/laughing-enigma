@@ -2,16 +2,22 @@ package ru.ilold.authbeans;
 
 import ru.ilold.UserEntities.Credentials;
 import ru.ilold.UserEntities.User;
+import ru.ilold.adminbeans.RolesBean;
 import ru.ilold.etc.StatusMessage;
 import ru.ilold.managers.UsersEntitiesManager;
+import ru.ilold.pagesbeans.ErrorPageBean;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.IOException;
 import java.io.Serializable;
 
 @Named
-@SessionScoped
+@RequestScoped
 public class SignupBean implements Serializable {
 
     private String email;
@@ -19,6 +25,11 @@ public class SignupBean implements Serializable {
     private Credentials credentials = new Credentials();
     private String password;
     private StatusMessage statusMessage;
+
+    @Inject
+    private ErrorPageBean errorPageBean;
+    @Inject
+    private LoginBean loginBean;
 
     @EJB
     private UsersEntitiesManager usersEntitiesManager;
@@ -72,5 +83,20 @@ public class SignupBean implements Serializable {
             return;
         }
         statusMessage = usersEntitiesManager.signupUser(user, credentials);
+        if(!statusMessage.isStatus()) {
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("/web/pages/errorpage.xhtml");
+                return;
+            } catch (IOException e) {
+                errorPageBean.setErrorMessage(e.getMessage());
+                return;
+            }
+        }
+        loginBean.setUser((User) statusMessage.getObject());
+        try {
+            FacesContext.getCurrentInstance().getExternalContext().redirect("/web/pages/main.xhtml");
+        } catch (IOException e) {
+            errorPageBean.setErrorMessage(e.getMessage());
+        }
     }
 }

@@ -31,11 +31,10 @@ public class AuthFilter implements Filter {
             return;
         }
         String resource = request.getRequestURI();
-        if(!authentificateManager.isGranted(loginBean.getEmail(), resource)) {
+        if(authentificateManager.isGranted(loginBean.getEmail(), resource)) {
             response.sendRedirect("/web/pages/main.xhtml");
             return;
         }
-
         chain.doFilter(req, resp);
     }
     public void init(FilterConfig config) throws ServletException {

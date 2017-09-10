@@ -1,5 +1,13 @@
-ru/ilold/authbeans/SignupBean.class
 ru/ilold/servlets/IsLoggedFilter.class
 ru/ilold/pagesbeans/mainPageBean.class
-ru/ilold/authbeans/LoginBean.class
 ru/ilold/servlets/AuthFilter.class
+ru/ilold/adminbeans/CategoryBean.class
+ru/ilold/authbeans/SignupBean.class
+ru/ilold/files/FileUpload.class
+ru/ilold/authbeans/LoginBean.class
+ru/ilold/adminbeans/ProductsBean.class
+ru/ilold/files/JackRepository.class
+ru/ilold/JackRepo.class
+ru/ilold/adminbeans/RolesBean.class
+ru/ilold/pagesbeans/ErrorPageBean.class
+ru/ilold/profile/ProfileBean.class

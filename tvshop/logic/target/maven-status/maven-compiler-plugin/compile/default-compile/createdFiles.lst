@@ -7,6 +7,7 @@ ru/ilold/UserEntities/Role.class
 ru/ilold/managers/RolesManager.class
 ru/ilold/etc/StatusMessage.class
 ru/ilold/managers/OrderBinManager.class
+ru/ilold/ProductEntities/ProductPhotos.class
 ru/ilold/UserEntities/OrderBin.class
 ru/ilold/ProductEntities/Category.class
 ru/ilold/UserEntities/Credentials.class

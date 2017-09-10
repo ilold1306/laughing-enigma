@@ -2,16 +2,19 @@ package ru.ilold.ProductEntities;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
     private String name;
+    @Size
     private String characteristics;
     private String photos;
+
+    @OneToMany
+    private List<ProductPhotos> productPhotos;
 
     @ManyToOne
     private Category category;
@@ -33,14 +36,6 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -65,5 +60,13 @@ public class Product {
 
     public void setPhotos(String photos) {
         this.photos = photos;
+    }
+
+    public List<ProductPhotos> getProductPhotos() {
+        return productPhotos;
+    }
+
+    public void setProductPhotos(List<ProductPhotos> productPhotos) {
+        this.productPhotos = productPhotos;
     }
 }

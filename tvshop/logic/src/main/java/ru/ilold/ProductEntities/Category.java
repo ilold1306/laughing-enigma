@@ -1,9 +1,7 @@
 package ru.ilold.ProductEntities;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -12,7 +10,7 @@ public class Category {
     private String name;
 
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Product> productList;
 
     public String getName() {

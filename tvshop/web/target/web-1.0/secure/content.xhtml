@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Categories</title>
+</h:head>
+<h:body>
+    <p:growl id="growl" showDetail="true" />
+    <p:panel header="Create category">
+        <h:panelGrid>
+            <h:form>
+                <h:outputText value="Name: " />
+                <p:inputText value="#{productsBean.categoryName}" />
+                <p:commandButton value="Create" action="#{productsBean.createCategory}" update="growl categories" />
+            </h:form>
+        </h:panelGrid>
+    </p:panel>
+    <p:panel id="categories" header="Create product">
+        <h:panelGrid columns="2" >
+            <h:form>
+                <h:outputText value="Name:" />
+                <p:inputText value="#{productsBean.name}" />
+                <h:outputText value="Description" />
+                <p:textEditor value="#{productsBean.characteristics}" height="300" style="margin-bottom: 10px" placeholder="Enter description" >
+                    <f:facet name="toolbar">
+                        <span class="ql-formats">
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>
+                            <button class="ql-strike"></button>
+                        </span>
+                        <span>
+                            <select class="ql-font"></select>
+                            <select class="ql-size"></select>
+                        </span>
+                    </f:facet>
+                </p:textEditor>
+                <h:outputText value="Select category" />
+                <p:selectOneListbox value="#{productsBean.categoryName}" >
+                    <f:selectItems value="#{productsBean.categoriesList}" />
+                </p:selectOneListbox>
+                <h:outputText value="Select photo" />
+                <h:form enctype="multypart/form-data" >
+                    <p:fileUpload fileUploadListener="#{productsBean.upload}" auto="true" />
+                    <p:commandButton value="Create" ajax="false" action="#{productsBean.createProduct}"/>
+                </h:form>
+            </h:form>
+        </h:panelGrid>
+    </p:panel>
+    <p:panel header="Remove category" >
+        <h:panelGrid columns="2" id="cat">
+            <h:form>
+                <h:outputText value="Select category" />
+                <p:selectOneListbox value="#{productsBean.categoryName}" >
+                    <f:selectItems value="#{productsBean.categoriesList}" />
+                </p:selectOneListbox>
+                <p:commandButton value="Delete" action="#{productsBean.removeCategory}" update="cat categories" />
+            </h:form>
+        </h:panelGrid>
+    </p:panel>
+    <p:panel header="Remove product">
+        <h:panelGrid columns="2" >
+            <h:form>
+                <h:outputText value="Input product id" />
+                <p:inputText value="#{productsBean.id}" />
+                <p:commandButton value="Delete" action="#{productsBean.deleteProduct}" />
+            </h:form>
+        </h:panelGrid>
+    </p:panel>
+</h:body>
+
+</html>

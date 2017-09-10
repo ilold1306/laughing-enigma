@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Roles</title>
+</h:head>
+<h:body>
+    <p:growl id="growl" showDetail="true" />
+    <p:panel header="Create role">
+        <h:panelGrid columns="2" >
+            <h:form>
+                <h:outputText value="Name: "/>
+                <p:inputText value="#{rolesBean.name}" />
+                <p:commandButton value="Create" action="#{rolesBean.createRole}" update="growl createright"/>
+            </h:form>
+        </h:panelGrid>
+    </p:panel>
+    <p:panel header="Create resource" >
+        <h:panelGrid columns="2">
+            <h:form>
+                <h:outputText value="Id: " />
+                <p:inputText value="#{rolesBean.name}" />
+                <p:commandButton update="createright growl" value="Create" action="#{rolesBean.createResource}" />
+            </h:form>
+        </h:panelGrid>
+    </p:panel>
+    <p:panel header="Create right" id="createright">
+        <h:panelGrid columns="2">
+            <h:form>
+                    <h:outputText value="Select role" />
+                    <p:selectOneListbox id="roleselect" value="#{rolesBean.code}" >
+                        <f:selectItems value="#{rolesBean.rolesList}" />
+                    </p:selectOneListbox>
+                    <p:selectOneListbox id="resourceselect" value="#{rolesBean.name}" >
+                        <f:selectItems value="#{rolesBean.resourcesList}" />
+                    </p:selectOneListbox>
+                    <p:commandButton value="Create" update="growl" action="#{rolesBean.createRight}" />
+            </h:form>
+        </h:panelGrid>
+    </p:panel>
+    <p:panel header="Grant roles to users" >
+        <h:panelGrid columns="2" >
+            <h:form>
+                <h:outputText value="Input user's login: " />
+                <p:inputText value="#{rolesBean.name}" />
+                <h:outputText value="Select role: " />
+                <p:selectOneListbox id="rolesselect" value="#{rolesBean.code}" >
+                    <f:selectItems value="#{rolesBean.rolesList}" />
+                </p:selectOneListbox>
+                <p:commandButton value="Grant" action="#{rolesBean.grantRightsToUser}" />
+            </h:form>
+        </h:panelGrid>
+    </p:panel>
+</h:body>
+
+</html>

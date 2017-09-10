@@ -6,6 +6,7 @@
 /home/user/workspace/projects/tvshop/logic/src/main/java/ru/ilold/UserEntities/Credentials.java
 /home/user/workspace/projects/tvshop/logic/src/main/java/ru/ilold/managers/OrderBinManager.java
 /home/user/workspace/projects/tvshop/logic/src/main/java/ru/ilold/UserEntities/OrderBin.java
+/home/user/workspace/projects/tvshop/logic/src/main/java/ru/ilold/ProductEntities/ProductPhotos.java
 /home/user/workspace/projects/tvshop/logic/src/main/java/ru/ilold/UserEntities/User.java
 /home/user/workspace/projects/tvshop/logic/src/main/java/ru/ilold/managers/AuthentificateManager.java
 /home/user/workspace/projects/tvshop/logic/src/main/java/ru/ilold/UserEntities/Pravo.java

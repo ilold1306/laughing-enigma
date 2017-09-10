@@ -1,9 +1,7 @@
 package ru.ilold.managers;
 
 
-import ru.ilold.UserEntities.Credentials;
-import ru.ilold.UserEntities.OrderBin;
-import ru.ilold.UserEntities.User;
+import ru.ilold.UserEntities.*;
 import ru.ilold.etc.StatusMessage;
 
 import javax.ejb.LocalBean;
@@ -49,9 +47,9 @@ public class UsersEntitiesManager {
         credentials.setOrderBin(orderBin);
         credentials.setUser(user);
         user.setCredentials(credentials);
+        entityManager.persist(orderBin);
         entityManager.persist(credentials);
         entityManager.persist(user);
-        entityManager.persist(orderBin);
         return new StatusMessage(true, "Success", user);
     }
 
@@ -80,4 +78,19 @@ public class UsersEntitiesManager {
         return new StatusMessage(true, "Email was changed");
     }
 
+    public StatusMessage setRoleToUser(long userId, String code) {
+        Credentials credentials = entityManager.find(Credentials.class, userId);
+        if(credentials == null) {
+            return new StatusMessage(false, "Such user does not exist");
+        }
+        Role role = entityManager.find(Role.class, code);
+        if(role == null) {
+            return new StatusMessage(false, "Such role does not exist");
+        }
+        CredentialsRole credentialsRole = new CredentialsRole();
+        credentialsRole.setCredentials(credentials);
+        credentialsRole.setRole(role);
+        entityManager.persist(credentialsRole);
+        return new StatusMessage(true, "Success", credentialsRole);
+    }
 }

@@ -1,8 +1,10 @@
 package ru.ilold.authbeans;
 
 
+import ru.ilold.JackRepo;
 import ru.ilold.UserEntities.Credentials;
 import ru.ilold.UserEntities.User;
+import ru.ilold.adminbeans.RolesBean;
 import ru.ilold.etc.StatusMessage;
 import ru.ilold.managers.UsersEntitiesManager;
 
@@ -22,9 +24,18 @@ public class LoginBean implements Serializable {
     private String message;
     private StatusMessage statusMessage = new StatusMessage(false, "");
     private String logged;
+    private String redirect = "/web/pages/main.xhtml";
 
     @EJB
     private UsersEntitiesManager usersEntitiesManager;
+
+    public String getRedirect() {
+        return redirect;
+    }
+
+    public void setRedirect(String redirect) {
+        this.redirect = redirect;
+    }
 
     public String getLogged() {
         return logged;
@@ -79,11 +90,15 @@ public class LoginBean implements Serializable {
             message = "Email or password field is empty";
             return;
         }
+        try {
+            JackRepo.workWithRepo();
+        } catch (Exception e) {
+            RolesBean.addMessage("Error!", "Exception in repo");
+        }
         Credentials credentials = new Credentials();
         credentials.setEmail(email);
         credentials.setPasswordHash(password.hashCode());
         statusMessage = usersEntitiesManager.loginUser(credentials);
         user = (User) statusMessage.getObject();
-        FacesContext.getCurrentInstance().getExternalContext().redirect("/web/pages/main.xhtml");
     }
 }
