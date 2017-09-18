@@ -1,0 +1,6 @@
+=== Command List ===
+1. /help - prints help;
+2. /online - prints list of users;
+3. /private [username] - sends private message;
+4. /close - disconnect you from chat;
+=== End Of Command List ====
